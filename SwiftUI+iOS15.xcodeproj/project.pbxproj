@@ -14,6 +14,7 @@
 		01CA2667286096A1004A17DD /* SwiftUI_iOS15Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2666286096A1004A17DD /* SwiftUI_iOS15Tests.swift */; };
 		01CA2671286096A1004A17DD /* SwiftUI_iOS15UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2670286096A1004A17DD /* SwiftUI_iOS15UITests.swift */; };
 		01CA2673286096A1004A17DD /* SwiftUI_iOS15UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2672286096A1004A17DD /* SwiftUI_iOS15UITestsLaunchTests.swift */; };
+		01CA26802864AD1F004A17DD /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA267F2864AD1F004A17DD /* Styles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		01CA266C286096A1004A17DD /* SwiftUI+iOS15UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftUI+iOS15UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01CA2670286096A1004A17DD /* SwiftUI_iOS15UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_iOS15UITests.swift; sourceTree = "<group>"; };
 		01CA2672286096A1004A17DD /* SwiftUI_iOS15UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_iOS15UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		01CA267F2864AD1F004A17DD /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				01CA2655286096A0004A17DD /* SwiftUI_iOS15App.swift */,
 				01CA2657286096A0004A17DD /* ContentView.swift */,
+				01CA267F2864AD1F004A17DD /* Styles.swift */,
 				01CA2659286096A1004A17DD /* Assets.xcassets */,
 				01CA265B286096A1004A17DD /* Preview Content */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01CA26802864AD1F004A17DD /* Styles.swift in Sources */,
 				01CA2658286096A0004A17DD /* ContentView.swift in Sources */,
 				01CA2656286096A0004A17DD /* SwiftUI_iOS15App.swift in Sources */,
 			);
