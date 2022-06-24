@@ -39,13 +39,41 @@ struct AccountView: View {
                 .padding()
                 
                 Section {
-                    Label("Settings", systemImage: "gear")
-                    Label("Billing", systemImage: "creditcard")
-                    Label("Help", systemImage: "questionmark")
-                        .imageScale(.small)
+                    NavigationLink(destination: ContentView()) {
+                        Label("Settings", systemImage: "gear")
+                            .accentColor(.primary)
+                    }
+                    NavigationLink { Text("Billing") } label: {
+                        Label("Billing", systemImage: "creditcard")
+                    }
+                    NavigationLink { ContentView()} label: {
+                        Label("Help", systemImage: "questionmark")
+                            .imageScale(.small)
+                    }
                 }
+                .accentColor(.primary)
                 .listRowSeparatorTint(.blue)
                 .listRowSeparator(.hidden)
+                
+                Section {
+                    Link(destination: URL(string: "https://www.apple.com")!) {
+                        HStack {
+                            Label("Apple", systemImage: "house")
+                            Spacer()
+                            Image(systemName: "link")
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    Link(destination: URL(string: "https://www.naver.com")!) {
+                        HStack {
+                            Label("Naver", systemImage: "tv")
+                            Spacer()
+                            Image(systemName: "link")
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                }
+                .accentColor(.primary)
             }
             .listStyle(.insetGrouped)
             .navigationTitle("Account")
