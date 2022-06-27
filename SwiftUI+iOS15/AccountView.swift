@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AccountView: View {
+    @State var isDeleted: Bool = false
+    
     var body: some View {
         NavigationView {
             List {
@@ -25,7 +27,7 @@ struct AccountView: View {
                                 .foregroundColor(.blue)
                                 .font(.system(size: 200))
                                 .offset(x: -50, y: -100)
-                    )
+                        )
                     Text("박승태")
                         .font(.title.weight(.semibold))
                     HStack {
@@ -56,12 +58,25 @@ struct AccountView: View {
                 .listRowSeparator(.hidden)
                 
                 Section {
-                    Link(destination: URL(string: "https://www.apple.com")!) {
-                        HStack {
-                            Label("Apple", systemImage: "house")
-                            Spacer()
-                            Image(systemName: "link")
-                                .foregroundColor(.secondary)
+                    if !self.isDeleted {
+                        Link(destination: URL(string: "https://www.apple.com")!) {
+                            HStack {
+                                Label("Apple", systemImage: "house")
+                                Spacer()
+                                Image(systemName: "link")
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+                        .swipeActions(edge: .leading,
+                                      allowsFullSwipe: false) {
+                            Button(action: { self.isDeleted = true }) {
+                                Label("Delete", systemImage: "trash")
+                            }
+                            .tint(.red)
+                            Button { self.isDeleted = false } label: {
+                                Label("Pin", systemImage: "pin")
+                            }
+                            .tint(.yellow)
                         }
                     }
                     Link(destination: URL(string: "https://www.naver.com")!) {
