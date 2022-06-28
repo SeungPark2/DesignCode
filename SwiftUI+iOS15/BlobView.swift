@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BlobView: View {
+    @State var appear: Bool = false
+    
     var body: some View {
         TimelineView(.animation) { timeline in
             let now = timeline.date.timeIntervalSinceReferenceDate
@@ -30,9 +32,16 @@ struct BlobView: View {
                              )
                 )
             }
+            .frame(width: 400, height: 414)
+            .rotationEffect(.degrees(self.appear ? 360 : 0))
         }
-        .frame(width: 400, height: 414)
+        .onAppear {
+            withAnimation(.linear(duration: 10).repeatForever(autoreverses: true)) {
+                self.appear = true
+            }
+        }
     }
+    
     
     func path(in rect: CGRect, x: Double, x2: Double) -> Path {
         var path = Path()
