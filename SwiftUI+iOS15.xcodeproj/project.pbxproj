@@ -17,6 +17,7 @@
 		01CA26802864AD1F004A17DD /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA267F2864AD1F004A17DD /* Styles.swift */; };
 		01F2EDE12865DBE400A1A30E /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F2EDE02865DBE400A1A30E /* AccountView.swift */; };
 		01F2EDE32869D2AC00A1A30E /* HexagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F2EDE22869D2AC00A1A30E /* HexagonView.swift */; };
+		01F2EDE5286B2AF800A1A30E /* BlobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F2EDE4286B2AF800A1A30E /* BlobView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		01CA267F2864AD1F004A17DD /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		01F2EDE02865DBE400A1A30E /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		01F2EDE22869D2AC00A1A30E /* HexagonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonView.swift; sourceTree = "<group>"; };
+		01F2EDE4286B2AF800A1A30E /* BlobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				01CA2657286096A0004A17DD /* ContentView.swift */,
 				01F2EDE02865DBE400A1A30E /* AccountView.swift */,
 				01F2EDE22869D2AC00A1A30E /* HexagonView.swift */,
+				01F2EDE4286B2AF800A1A30E /* BlobView.swift */,
 				01CA267F2864AD1F004A17DD /* Styles.swift */,
 				01CA2659286096A1004A17DD /* Assets.xcassets */,
 				01CA265B286096A1004A17DD /* Preview Content */,
@@ -269,6 +272,7 @@
 				01F2EDE12865DBE400A1A30E /* AccountView.swift in Sources */,
 				01F2EDE32869D2AC00A1A30E /* HexagonView.swift in Sources */,
 				01CA26802864AD1F004A17DD /* Styles.swift in Sources */,
+				01F2EDE5286B2AF800A1A30E /* BlobView.swift in Sources */,
 				01CA2658286096A0004A17DD /* ContentView.swift in Sources */,
 				01CA2656286096A0004A17DD /* SwiftUI_iOS15App.swift in Sources */,
 			);
