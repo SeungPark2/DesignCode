@@ -65,7 +65,7 @@ struct AccountView: View {
             NavigationLink { Text("Billing") } label: {
                 Label("Billing", systemImage: "creditcard")
             }
-            NavigationLink { ContentView()} label: {
+            NavigationLink { HomeView()} label: {
                 Label("Help", systemImage: "questionmark")
                     .imageScale(.small)
             }

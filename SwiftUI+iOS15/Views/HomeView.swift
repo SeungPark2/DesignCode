@@ -1,15 +1,14 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  SwiftUI+iOS15
 //
-//  Created by 박승태 on 2022/06/20.
+//  Created by 박승태 on 2022/06/30.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
     var body: some View {
-        
         VStack(alignment: .leading, spacing: 8.0) {
             Spacer()
             Image("Logo 2")
@@ -57,10 +56,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-            .preferredColorScheme(.dark)
-            .previewDevice("iPhone 12")
+        HomeView()
     }
 }
