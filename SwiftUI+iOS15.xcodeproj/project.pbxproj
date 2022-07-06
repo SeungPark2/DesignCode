@@ -25,6 +25,7 @@
 		01F2EDF42873120000A1A30E /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F2EDF32873120000A1A30E /* NavigationBar.swift */; };
 		01F2EDF6287315E000A1A30E /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F2EDF5287315E000A1A30E /* PreferenceKeys.swift */; };
 		01F2EDF82875B61F00A1A30E /* AnimatableFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F2EDF72875B61F00A1A30E /* AnimatableFontModifier.swift */; };
+		01F2EDFA2875B8B900A1A30E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F2EDF92875B8B900A1A30E /* Course.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		01F2EDF32873120000A1A30E /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		01F2EDF5287315E000A1A30E /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 		01F2EDF72875B61F00A1A30E /* AnimatableFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableFontModifier.swift; sourceTree = "<group>"; };
+		01F2EDF92875B8B900A1A30E /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			children = (
 				01F2EDE8286C776000A1A30E /* Tab.swift */,
 				01F2EDF5287315E000A1A30E /* PreferenceKeys.swift */,
+				01F2EDF92875B8B900A1A30E /* Course.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				01F2EDF42873120000A1A30E /* NavigationBar.swift in Sources */,
 				01F2EDE5286B2AF800A1A30E /* BlobView.swift in Sources */,
 				01CA2658286096A0004A17DD /* ContentView.swift in Sources */,
+				01F2EDFA2875B8B900A1A30E /* Course.swift in Sources */,
 				01CA2656286096A0004A17DD /* SwiftUI_iOS15App.swift in Sources */,
 				01F2EDF22873111600A1A30E /* FeaturedItem.swift in Sources */,
 				01F2EDF6287315E000A1A30E /* PreferenceKeys.swift in Sources */,
