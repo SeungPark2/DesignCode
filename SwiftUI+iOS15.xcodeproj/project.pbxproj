@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0123F1ED2876FA72004C7815 /* MatchedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0123F1EC2876FA72004C7815 /* MatchedView.swift */; };
+		0123F1EF287C5E41004C7815 /* CouresItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0123F1EE287C5E41004C7815 /* CouresItem.swift */; };
+		0123F1F1287C5EF5004C7815 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0123F1F0287C5EF5004C7815 /* CourseView.swift */; };
 		01CA2656286096A0004A17DD /* SwiftUI_iOS15App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2655286096A0004A17DD /* SwiftUI_iOS15App.swift */; };
 		01CA2658286096A0004A17DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2657286096A0004A17DD /* ContentView.swift */; };
 		01CA265A286096A1004A17DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01CA2659286096A1004A17DD /* Assets.xcassets */; };
@@ -48,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		0123F1EC2876FA72004C7815 /* MatchedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedView.swift; sourceTree = "<group>"; };
+		0123F1EE287C5E41004C7815 /* CouresItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouresItem.swift; sourceTree = "<group>"; };
+		0123F1F0287C5EF5004C7815 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
 		01CA2652286096A0004A17DD /* SwiftUI+iOS15.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI+iOS15.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01CA2655286096A0004A17DD /* SwiftUI_iOS15App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_iOS15App.swift; sourceTree = "<group>"; };
 		01CA2657286096A0004A17DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 				01F2EDEA286DD25300A1A30E /* HomeView.swift */,
 				0123F1EC2876FA72004C7815 /* MatchedView.swift */,
 				01F2EDE02865DBE400A1A30E /* AccountView.swift */,
+				0123F1F0287C5EF5004C7815 /* CourseView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 				01F2EDE22869D2AC00A1A30E /* HexagonView.swift */,
 				01F2EDE4286B2AF800A1A30E /* BlobView.swift */,
 				01F2EDF12873111600A1A30E /* FeaturedItem.swift */,
+				0123F1EE287C5E41004C7815 /* CouresItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -338,6 +344,7 @@
 			files = (
 				01F2EDEB286DD25300A1A30E /* HomeView.swift in Sources */,
 				01F2EDE12865DBE400A1A30E /* AccountView.swift in Sources */,
+				0123F1F1287C5EF5004C7815 /* CourseView.swift in Sources */,
 				01F2EDE32869D2AC00A1A30E /* HexagonView.swift in Sources */,
 				01CA26802864AD1F004A17DD /* Styles.swift in Sources */,
 				0123F1ED2876FA72004C7815 /* MatchedView.swift in Sources */,
@@ -347,6 +354,7 @@
 				01CA2658286096A0004A17DD /* ContentView.swift in Sources */,
 				01F2EDFA2875B8B900A1A30E /* Course.swift in Sources */,
 				01CA2656286096A0004A17DD /* SwiftUI_iOS15App.swift in Sources */,
+				0123F1EF287C5E41004C7815 /* CouresItem.swift in Sources */,
 				01F2EDF22873111600A1A30E /* FeaturedItem.swift in Sources */,
 				01F2EDF6287315E000A1A30E /* PreferenceKeys.swift in Sources */,
 				01F2EDE7286C73CF00A1A30E /* TabBar.swift in Sources */,
