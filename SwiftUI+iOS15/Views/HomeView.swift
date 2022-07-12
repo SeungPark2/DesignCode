@@ -11,6 +11,7 @@ struct HomeView: View {
     @State var hasScrolled: Bool = false
     @Namespace var namespace
     @State var show: Bool = false
+    @State var showStatusBar: Bool = false
     
     var body: some View {
         ZStack {
@@ -30,8 +31,9 @@ struct HomeView: View {
                 if !self.show {
                     CouresItem(namespace: self.namespace, show: $show)
                         .onTapGesture {
-                            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                            withAnimation(.openCard) {
                                 self.show.toggle()
+                                self.showStatusBar = false
                             }
                         }
                 }
@@ -46,6 +48,12 @@ struct HomeView: View {
             
             if self.show {
                 CourseView(namespace: self.namespace, show: $show)
+            }
+        }
+        .statusBar(hidden: !self.showStatusBar)
+        .onChange(of: self.show) { newValue in
+            withAnimation(.closeCard) {
+                self.showStatusBar = !newValue
             }
         }
     }

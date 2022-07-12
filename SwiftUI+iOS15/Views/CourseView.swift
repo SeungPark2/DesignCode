@@ -19,20 +19,7 @@ struct CourseView: View {
             .background(Color("Background"))
             .ignoresSafeArea()
             
-            Button {
-                withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-                    self.show.toggle()
-                }
-            } label: {
-                Image(systemName: "xmark")
-                    .font(.body.weight(.bold))
-                    .foregroundColor(.secondary)
-                    .padding(8)
-                    .background(.ultraThinMaterial, in: Circle())
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-            .padding(20)
-            .ignoresSafeArea()
+            self.button
         }
     }
     
@@ -83,8 +70,9 @@ struct CourseView: View {
                         .padding(8)
                         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
                         .strokeStyle(cornerRadius: 18)
-//                                Text("PST")
-//                                    .font(.footnote)
+
+                    Text("PST")
+                        .font(.footnote)
                 }
             }
                 .padding(20)
@@ -99,6 +87,23 @@ struct CourseView: View {
                 .offset(y: 250)
                 .padding(20)
         )
+    }
+    
+    var button: some View {
+        Button {
+            withAnimation(.closeCard) {
+                self.show.toggle()
+            }
+        } label: {
+            Image(systemName: "xmark")
+                .font(.body.weight(.bold))
+                .foregroundColor(.secondary)
+                .padding(8)
+                .background(.ultraThinMaterial, in: Circle())
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+        .padding(20)
+        .ignoresSafeArea()
     }
 }
 
