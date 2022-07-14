@@ -9,8 +9,9 @@ import SwiftUI
 
 struct CourseView: View {
     var namespace: Namespace.ID
+    var course: Course = courses[0]
     @Binding var show: Bool
-    @State var appear = [false, false, false]
+    @State private var appear = [false, false, false]
     
     var body: some View {
         ZStack {
@@ -22,7 +23,7 @@ struct CourseView: View {
                     .padding(.bottom, 200)
                     .opacity(self.appear[2] ? 1 : 0)
             }
-            .background(Color("Background"))
+            .background(Color("Background\(self.course.id)"))
             .ignoresSafeArea()
             
             self.button
@@ -53,7 +54,7 @@ struct CourseView: View {
         self.appear[2] = false
     }
     
-    var cover: some View {
+    private var cover: some View {
         VStack {
             Spacer()
         }
@@ -62,34 +63,34 @@ struct CourseView: View {
         .padding(20)
         .foregroundStyle(.black)
         .background(
-            Image("Illustration 9")
+            Image(self.course.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .matchedGeometryEffect(id: "image", in: self.namespace)
+                .matchedGeometryEffect(id: "image\(self.course.id)", in: self.namespace)
         )
         .background(
-            Image("Background 5")
+            Image(self.course.background)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .matchedGeometryEffect(id: "background", in: self.namespace)
+                .matchedGeometryEffect(id: "background\(self.course.id)", in: self.namespace)
         )
         .mask(
             RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .matchedGeometryEffect(id: "mask", in: self.namespace)
+                .matchedGeometryEffect(id: "mask\(self.course.id)", in: self.namespace)
         )
         .overlay(
             VStack(alignment: .leading, spacing: 12) {
-                Text("Build an iOS app for iOS 15 with custom layouts, animations and ...")
+                Text(self.course.text)
                     .font(.footnote)
-                    .matchedGeometryEffect(id: "text", in: self.namespace)
+                    .matchedGeometryEffect(id: "text\(self.course.id)", in: self.namespace)
                 
-                Text("20 sections - 3 hours".uppercased())
+                Text(self.course.subtitle.uppercased())
                     .font(.footnote.weight(.semibold))
-                    .matchedGeometryEffect(id: "subtitle", in: self.namespace)
+                    .matchedGeometryEffect(id: "subtitle\(self.course.id)", in: self.namespace)
                 
-                Text("SwiftUI")
+                Text(self.course.title)
                     .font(.largeTitle.weight(.bold))
-                    .matchedGeometryEffect(id: "title", in: self.namespace)
+                    .matchedGeometryEffect(id: "title\(self.course.id)", in: self.namespace)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Divider()
                     .opacity(self.appear[0] ? 1 : 0)
@@ -114,14 +115,14 @@ struct CourseView: View {
                         .mask(
                             RoundedRectangle(cornerRadius: 30, style: .continuous)
                         )
-                        .matchedGeometryEffect(id: "blur", in: self.namespace)
+                        .matchedGeometryEffect(id: "blur\(self.course.id)", in: self.namespace)
                 )
                 .offset(y: 250)
                 .padding(20)
         )
     }
     
-    var content: some View {
+    private var content: some View {
         VStack(alignment: .leading, spacing: 30) {
             Text("SwiftUI is hands-down the best way for designers to take a first step into code. ")
                 .font(.title3).fontWeight(.medium)
@@ -136,7 +137,7 @@ struct CourseView: View {
         .padding(20)
     }
     
-    var button: some View {
+    private var button: some View {
         Button {
             withAnimation(.closeCard) {
                 self.show.toggle()

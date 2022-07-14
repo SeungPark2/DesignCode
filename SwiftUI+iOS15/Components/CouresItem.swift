@@ -9,24 +9,25 @@ import SwiftUI
 
 struct CouresItem: View {
     var namespace: Namespace.ID
+    var coures: Course = courses[0]
     @Binding var show: Bool
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Spacer()
             VStack {
-                Text("SwiftUI")
+                Text(self.coures.title)
                     .font(.largeTitle.weight(.bold))
-                    .matchedGeometryEffect(id: "title", in: self.namespace)
+                    .matchedGeometryEffect(id: "title\(self.coures.id)", in: self.namespace)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Text("20 sections - 3 hours".uppercased())
+                Text(self.coures.subtitle.uppercased())
                     .font(.footnote.weight(.semibold))
-                    .matchedGeometryEffect(id: "subtitle", in: self.namespace)
+                    .matchedGeometryEffect(id: "subtitle\(self.coures.id)", in: self.namespace)
                 
-                Text("Build an iOS app for iOS 15 with custom layouts, animations and ...")
+                Text(self.coures.text)
                     .font(.footnote)
-                    .matchedGeometryEffect(id: "text", in: self.namespace)
+                    .matchedGeometryEffect(id: "text\(self.coures.id)", in: self.namespace)
             }
             .padding(20)
             .background(
@@ -36,25 +37,25 @@ struct CouresItem: View {
                         RoundedRectangle(cornerRadius: 30, style: .continuous)
                     )
                     .blur(radius: 30)
-                    .matchedGeometryEffect(id: "blur", in: self.namespace)
+                    .matchedGeometryEffect(id: "blur\(self.coures.id)", in: self.namespace)
             )
         }
         .foregroundStyle(.white)
         .background(
-            Image("Illustration 9")
+            Image(self.coures.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .matchedGeometryEffect(id: "image", in: self.namespace)
+                .matchedGeometryEffect(id: "image\(self.coures.id)", in: self.namespace)
         )
         .background(
-            Image("Background 5")
+            Image(self.coures.background)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .matchedGeometryEffect(id: "background", in: self.namespace)
+                .matchedGeometryEffect(id: "background\(self.coures.id)", in: self.namespace)
         )
         .mask(
             RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .matchedGeometryEffect(id: "mask", in: self.namespace)
+                .matchedGeometryEffect(id: "mask\(self.coures.id)", in: self.namespace)
         )
         .padding(20)
     }
@@ -64,6 +65,6 @@ struct CouresItem_Previews: PreviewProvider {
     @Namespace static var namespace
     
     static var previews: some View {
-        CouresItem(namespace: namespace, show: .constant(true))
+        CouresItem(namespace: self.namespace, show: .constant(true))
     }
 }

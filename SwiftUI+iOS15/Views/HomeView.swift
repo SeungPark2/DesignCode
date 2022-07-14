@@ -29,13 +29,17 @@ struct HomeView: View {
                     .padding(.horizontal, 20)
                 
                 if !self.show {
-                    CouresItem(namespace: self.namespace, show: $show)
-                        .onTapGesture {
-                            withAnimation(.openCard) {
-                                self.show.toggle()
-                                self.showStatusBar = false
-                            }
+                    ForEach(courses) { cource in
+                        CouresItem(namespace: self.namespace,
+                                   coures: cource,
+                                   show: $show)
+                            .onTapGesture {
+                                withAnimation(.openCard) {
+                                    self.show.toggle()
+                                    self.showStatusBar = false
+                                }
                         }
+                    }
                 }
             }
             .coordinateSpace(name: "scroll")
@@ -45,11 +49,13 @@ struct HomeView: View {
             .overlay(
                 NavigationBar(title: "Featured", hasScrolled: $hasScrolled)
             )
-            
+             
             if self.show {
-                CourseView(namespace: self.namespace, show: $show)
-                    .zIndex(1)
+                ForEach(courses) { course in
+                    CourseView(namespace: self.namespace, course: course, show: $show)
+                        .zIndex(1)
                     .transition(.asymmetric(insertion: .opacity.animation(.easeInOut(duration: 0.1)), removal: .opacity.animation(.easeInOut(duration: 0.3).delay(0.2))))
+                }
             }
         }
         .statusBar(hidden: !self.showStatusBar)
@@ -79,7 +85,7 @@ struct HomeView: View {
     
     var featured: some View {
         TabView {
-            ForEach(courses) { course in
+            ForEach(featuredCourses) { course in
                 GeometryReader { proxy in
                     let minX = proxy.frame(in: .global).minX
                     

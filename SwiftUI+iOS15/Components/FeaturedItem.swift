@@ -48,6 +48,6 @@ struct FeaturedItem: View {
 
 struct FeaturedItem_Previews: PreviewProvider {
     static var previews: some View {
-        FeaturedItem(course: Course(title: "", subtitle: "", text: "", image: "", logo: ""))
+        FeaturedItem(course: Course(title: "", subtitle: "", text: "", image: "", background: "", logo: ""))
     }
 }

@@ -12,12 +12,12 @@ struct StrokeStyle: ViewModifier {
     @Environment(\.colorScheme) var colorScheme
     func body(content: Content) -> some View {
         content.overlay(
-            RoundedRectangle(cornerRadius: cornerRadius,style: .continuous)
+            RoundedRectangle(cornerRadius: self.cornerRadius,style: .continuous)
                 .stroke(
                     .linearGradient(
                         colors: [
-                            .white.opacity(colorScheme == .dark ? 0.1 : 0.3),
-                            .black.opacity(colorScheme == .dark ? 0.3 : 0.1)
+                            .white.opacity(self.colorScheme == .dark ? 0.1 : 0.3),
+                            .black.opacity(self.colorScheme == .dark ? 0.3 : 0.1)
                         ], startPoint: .top, endPoint: .bottom
                     )
                 )
