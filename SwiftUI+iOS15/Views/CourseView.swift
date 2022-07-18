@@ -24,7 +24,7 @@ struct CourseView: View {
                     .padding(.bottom, 200)
                     .opacity(self.appear[2] ? 1 : 0)
             }
-            .background(Color("Background\(self.course.id)"))
+            .background(Color("Background"))
             .ignoresSafeArea()
             
             self.button
@@ -35,6 +35,49 @@ struct CourseView: View {
         .onChange(of: self.show) { newValue in
             self.fadeOut()
         }
+    }
+    
+    var overlayContent: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text(self.course.text)
+                .font(.footnote)
+                .matchedGeometryEffect(id: "text\(self.course.id)", in: self.namespace)
+            
+            Text(self.course.subtitle.uppercased())
+                .font(.footnote.weight(.semibold))
+                .matchedGeometryEffect(id: "subtitle\(self.course.id)", in: self.namespace)
+            
+            Text(self.course.title)
+                .font(.largeTitle.weight(.bold))
+                .matchedGeometryEffect(id: "title\(self.course.id)", in: self.namespace)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Divider()
+                .opacity(self.appear[0] ? 1 : 0)
+            HStack {
+                Image("Avatar Default")
+                    .resizable()
+                    .frame(width: 26, height: 26)
+                    .cornerRadius(10)
+                    .padding(8)
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+                    .strokeStyle(cornerRadius: 18)
+
+                Text("PST")
+                    .font(.footnote)
+            }
+            .opacity(self.appear[1] ? 1 : 0)
+        }
+            .padding(20)
+            .background(
+                Rectangle()
+                    .fill(.ultraThinMaterial)
+                    .mask(
+                        RoundedRectangle(cornerRadius: 30, style: .continuous)
+                    )
+                    .matchedGeometryEffect(id: "blur\(self.course.id)", in: self.namespace)
+            )
+            .offset(y: 250)
+            .padding(20)
     }
     
     private func fadeIn() {
@@ -56,71 +99,42 @@ struct CourseView: View {
     }
     
     private var cover: some View {
-        VStack {
-            Spacer()
-        }
-        .frame(maxWidth: .infinity)
-        .frame(height: 500)
-        .padding(20)
-        .foregroundStyle(.black)
-        .background(
-            Image(self.course.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .matchedGeometryEffect(id: "image\(self.course.id)", in: self.namespace)
-        )
-        .background(
-            Image(self.course.background)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .matchedGeometryEffect(id: "background\(self.course.id)", in: self.namespace)
-        )
-        .mask(
-            RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .matchedGeometryEffect(id: "mask\(self.course.id)", in: self.namespace)
-        )
-        .overlay(
-            VStack(alignment: .leading, spacing: 12) {
-                Text(self.course.text)
-                    .font(.footnote)
-                    .matchedGeometryEffect(id: "text\(self.course.id)", in: self.namespace)
-                
-                Text(self.course.subtitle.uppercased())
-                    .font(.footnote.weight(.semibold))
-                    .matchedGeometryEffect(id: "subtitle\(self.course.id)", in: self.namespace)
-                
-                Text(self.course.title)
-                    .font(.largeTitle.weight(.bold))
-                    .matchedGeometryEffect(id: "title\(self.course.id)", in: self.namespace)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Divider()
-                    .opacity(self.appear[0] ? 1 : 0)
-                HStack {
-                    Image("Avatar Default")
-                        .resizable()
-                        .frame(width: 26, height: 26)
-                        .cornerRadius(10)
-                        .padding(8)
-                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
-                        .strokeStyle(cornerRadius: 18)
-
-                    Text("PST")
-                        .font(.footnote)
-                }
-                .opacity(self.appear[1] ? 1 : 0)
+        GeometryReader { proxy in
+            let scrollY = proxy.frame(in: .global).minY
+            
+            VStack {
+                Spacer()
             }
-                .padding(20)
-                .background(
-                    Rectangle()
-                        .fill(.ultraThinMaterial)
-                        .mask(
-                            RoundedRectangle(cornerRadius: 30, style: .continuous)
-                        )
-                        .matchedGeometryEffect(id: "blur\(self.course.id)", in: self.namespace)
-                )
-                .offset(y: 250)
-                .padding(20)
-        )
+            .frame(maxWidth: .infinity)
+            .frame(height: scrollY > 0 ? 500 + scrollY : 500)
+            .foregroundStyle(.black)
+            .background(
+                Image(self.course.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .matchedGeometryEffect(id: "image\(self.course.id)", in: self.namespace)
+                    .offset(y: scrollY > 0 ? scrollY * -0.8 : 0)
+            )
+            .background(
+                Image(self.course.background)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .matchedGeometryEffect(id: "background\(self.course.id)", in: self.namespace)
+                    .offset(y: scrollY > 0 ? -scrollY : 0)
+                    .scaleEffect(scrollY > 0 ? scrollY / 1000 + 1 : 1)
+                    .blur(radius: scrollY / 10)
+            )
+            .mask(
+                RoundedRectangle(cornerRadius: 30, style: .continuous)
+                    .matchedGeometryEffect(id: "mask\(self.course.id)", in: self.namespace)
+                    .offset(y: scrollY > 0 ? -scrollY : 0)
+            )
+            .overlay(
+                self.overlayContent
+                    .offset(y:scrollY > 0 ? scrollY * -0.6 : 0)
+            )
+        }
+        .frame(height: 500)
     }
     
     private var content: some View {
