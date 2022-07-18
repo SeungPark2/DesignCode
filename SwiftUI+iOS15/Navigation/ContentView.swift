@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @AppStorage("selectedTab") var selectedTab: Tab = .home
+    @EnvironmentObject var model: Model
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -21,6 +22,7 @@ struct ContentView: View {
             }
                 
             TabBar()
+                .offset(y: self.model.showDetail ? 200 : 0)
         }
         .safeAreaInset(edge: .bottom) {
             Color.clear.frame(height: 44)
@@ -33,5 +35,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .preferredColorScheme(.dark)
             .previewDevice("iPhone 12")
+            .environmentObject(Model())
     }
 }
