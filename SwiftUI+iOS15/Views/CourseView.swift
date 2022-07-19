@@ -14,6 +14,7 @@ struct CourseView: View {
     @State private var appear = [false, false, false]
     @EnvironmentObject var model: Model
     @State var viewState: CGSize = .zero
+    @State var isDraggable: Bool = true
     
     var body: some View {
         ZStack {
@@ -31,19 +32,7 @@ struct CourseView: View {
             .scaleEffect(self.viewState.width / -500 + 1)
             .background(.black.opacity(self.viewState.width / 500))
             .background(.ultraThinMaterial)
-            .gesture(
-                DragGesture()
-                    .onChanged { value in
-                        guard value.translation.width > 0 else { return }
-                        
-                        self.viewState = value.translation
-                    }
-                    .onEnded { value in
-                        withAnimation(.closeCard) {
-                            self.viewState = .zero
-                        }
-                    }
-            )
+            .gesture(self.isDraggable ? self.drag : nil)
             .ignoresSafeArea()
             
             self.button
@@ -111,10 +100,50 @@ struct CourseView: View {
         }
     }
     
+    private var drag: some Gesture {
+        DragGesture(minimumDistance: 30, coordinateSpace: .local)
+            .onChanged { value in
+                guard value.translation.width > 0 else { return }
+                
+                if value.startLocation.x < 100 {
+                    withAnimation(.closeCard) {
+                        self.viewState = value.translation
+                    }
+                }
+                
+                if self.viewState.width > 120 {
+                    self.close()
+                }
+            }
+            .onEnded { value in
+                if self.viewState.width > 80 {
+                    self.close()
+                    return
+                }
+                
+                withAnimation(.closeCard) {
+                    self.viewState = .zero
+                }
+            }
+    }
+    
     private func fadeOut() {
         self.appear[0] = false
         self.appear[1] = false
         self.appear[2] = false
+    }
+    
+    private func close() {
+        withAnimation(.closeCard.delay(0.3)) {
+            self.show.toggle()
+            self.model.showDetail.toggle()
+        }
+        
+        withAnimation(.closeCard) {
+            self.viewState = .zero
+        }
+        
+        self.isDraggable = false
     }
     
     private var cover: some View {
