@@ -160,6 +160,8 @@ struct CourseView: View {
                 Image(self.course.image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .padding(20)
+                    .frame(maxWidth: 500)
                     .matchedGeometryEffect(id: "image\(self.course.id)", in: self.namespace)
                     .offset(y: scrollY > 0 ? scrollY * -0.8 : 0)
             )
@@ -173,7 +175,7 @@ struct CourseView: View {
                     .blur(radius: scrollY / 10)
             )
             .mask(
-                RoundedRectangle(cornerRadius: 30, style: .continuous)
+                RoundedRectangle(cornerRadius: self.appear[0] ? 0 : 30, style: .continuous)
                     .matchedGeometryEffect(id: "mask\(self.course.id)", in: self.namespace)
                     .offset(y: scrollY > 0 ? -scrollY : 0)
             )

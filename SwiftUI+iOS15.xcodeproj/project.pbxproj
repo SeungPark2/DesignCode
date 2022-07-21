@@ -168,8 +168,8 @@
 		01F2EDEC286DD38600A1A30E /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				01F2EDE6286C73CF00A1A30E /* TabBar.swift */,
 				01CA2657286096A0004A17DD /* ContentView.swift */,
+				01F2EDE6286C73CF00A1A30E /* TabBar.swift */,
 				01F2EDF32873120000A1A30E /* NavigationBar.swift */,
 			);
 			path = Navigation;

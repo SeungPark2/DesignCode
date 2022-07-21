@@ -24,7 +24,7 @@ struct ContentView: View {
             TabBar()
                 .offset(y: self.model.showDetail ? 200 : 0)
         }
-        .safeAreaInset(edge: .bottom) {
+        .safeAreaInset(edge: .bottom, spacing: 0) {
             Color.clear.frame(height: 44)
         }
     }
