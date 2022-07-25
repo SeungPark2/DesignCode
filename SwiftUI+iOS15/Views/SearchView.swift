@@ -9,6 +9,9 @@ import SwiftUI
 
 struct SearchView: View {
     @State var searchText: String = ""
+    @State var show: Bool = false
+    @Namespace var namespace
+    @State var selectedIndex: Int = 0
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -49,28 +52,42 @@ struct SearchView: View {
         .navigationTitle("Search")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: Button { self.presentationMode.wrappedValue.dismiss() } label: { Text("Done") })
+        .sheet(isPresented: $show) {
+            CourseView(namespace: self.namespace,
+                       course: courses[self.selectedIndex],
+                       show: $show)
+        }
     }
     
     var content: some View {
-        ForEach(courses.filter{ $0.title.contains(self.searchText) || self.searchText.isEmpty }) { item in
-            HStack(alignment: .top, spacing: 12) {
-                Image(item.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 44, height: 44)
-                    .background(Color("Background"))
-                    .mask(Circle())
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(item.title).bold()
-                    Text(item.text)
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .multilineTextAlignment(.leadigng)
+        ForEach(Array(courses.enumerated()), id: \.offset) { index, item in
+            if item.title.contains(self.searchText) || self.searchText.isEmpty {
+                if index != 0 { Divider() }
+                Button {
+                    self.show = true
+                    self.selectedIndex = index
+                } label: {
+                    HStack(alignment: .top, spacing: 12) {
+                        Image(item.image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 44, height: 44)
+                            .background(Color("Background"))
+                            .mask(Circle())
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(item.title).bold()
+                                .foregroundColor(.primary)
+                            Text(item.text)
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .multilineTextAlignment(.leading)
+                        }
+                    }
+                    .padding(.vertical, 4)
+                    .listRowSeparator(.hidden)
                 }
             }
-            .padding(.vertical, 4)
-            .listRowSeparator(.hidden)
         }
     }
 }
