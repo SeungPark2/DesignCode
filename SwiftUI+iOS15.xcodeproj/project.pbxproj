@@ -15,6 +15,7 @@
 		0123F1F9288ABAB1004C7815 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0123F1F8288ABAB1004C7815 /* SearchView.swift */; };
 		0123F1FB288E9E3E004C7815 /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0123F1FA288E9E3E004C7815 /* Suggestion.swift */; };
 		0123F1FD28900143004C7815 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0123F1FC28900143004C7815 /* SignUpView.swift */; };
+		01AE67C42897C5E200D97122 /* AngularButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE67C32897C5E200D97122 /* AngularButtonStyle.swift */; };
 		01CA2656286096A0004A17DD /* SwiftUI_iOS15App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2655286096A0004A17DD /* SwiftUI_iOS15App.swift */; };
 		01CA2658286096A0004A17DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2657286096A0004A17DD /* ContentView.swift */; };
 		01CA265A286096A1004A17DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01CA2659286096A1004A17DD /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		0123F1F8288ABAB1004C7815 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		0123F1FA288E9E3E004C7815 /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
 		0123F1FC28900143004C7815 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		01AE67C32897C5E200D97122 /* AngularButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngularButtonStyle.swift; sourceTree = "<group>"; };
 		01CA2652286096A0004A17DD /* SwiftUI+iOS15.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI+iOS15.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01CA2655286096A0004A17DD /* SwiftUI_iOS15App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_iOS15App.swift; sourceTree = "<group>"; };
 		01CA2657286096A0004A17DD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				01CA267F2864AD1F004A17DD /* Styles.swift */,
 				01F2EDF72875B61F00A1A30E /* AnimatableFontModifier.swift */,
 				0123F1F2287D94E9004C7815 /* Animation.swift */,
+				01AE67C32897C5E200D97122 /* AngularButtonStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				0123F1ED2876FA72004C7815 /* MatchedView.swift in Sources */,
 				01F2EDE9286C776000A1A30E /* Tab.swift in Sources */,
 				01F2EDF42873120000A1A30E /* NavigationBar.swift in Sources */,
+				01AE67C42897C5E200D97122 /* AngularButtonStyle.swift in Sources */,
 				01F2EDE5286B2AF800A1A30E /* BlobView.swift in Sources */,
 				01CA2658286096A0004A17DD /* ContentView.swift in Sources */,
 				01F2EDFA2875B8B900A1A30E /* Course.swift in Sources */,
