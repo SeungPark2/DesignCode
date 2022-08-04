@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010DD718289C138D00A1646B /* InputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010DD717289C138D00A1646B /* InputStyle.swift */; };
 		0123F1ED2876FA72004C7815 /* MatchedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0123F1EC2876FA72004C7815 /* MatchedView.swift */; };
 		0123F1EF287C5E41004C7815 /* CouresItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0123F1EE287C5E41004C7815 /* CouresItem.swift */; };
 		0123F1F1287C5EF5004C7815 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0123F1F0287C5EF5004C7815 /* CourseView.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		010DD717289C138D00A1646B /* InputStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputStyle.swift; sourceTree = "<group>"; };
 		0123F1EC2876FA72004C7815 /* MatchedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedView.swift; sourceTree = "<group>"; };
 		0123F1EE287C5E41004C7815 /* CouresItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouresItem.swift; sourceTree = "<group>"; };
 		0123F1F0287C5EF5004C7815 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				01F2EDF72875B61F00A1A30E /* AnimatableFontModifier.swift */,
 				0123F1F2287D94E9004C7815 /* Animation.swift */,
 				01AE67C32897C5E200D97122 /* AngularButtonStyle.swift */,
+				010DD717289C138D00A1646B /* InputStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				0123F1FD28900143004C7815 /* SignUpView.swift in Sources */,
 				01F2EDF6287315E000A1A30E /* PreferenceKeys.swift in Sources */,
 				01F2EDE7286C73CF00A1A30E /* TabBar.swift in Sources */,
+				010DD718289C138D00A1646B /* InputStyle.swift in Sources */,
 				0123F1F728857A3F004C7815 /* Model.swift in Sources */,
 				0123F1F3287D94E9004C7815 /* Animation.swift in Sources */,
 				01F2EDF82875B61F00A1A30E /* AnimatableFontModifier.swift in Sources */,
